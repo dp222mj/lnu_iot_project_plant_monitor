@@ -44,10 +44,6 @@ light = photo_resistor.read_u16()
 # Light level is calculated as a percentage by subtracting the 16-bit integer reading from ADC from the ceiling value of the 16-bit integer (65535), this value is divided by the ceiling value and then multiplied by 100 to get the light level as a percentage.
 light_level = round((65535 - light) / 65535 * 100, 2)
 
-# # Use the MQTT protocol to connect to Adafruit IO
-# client = MQTTClient(keys.AIO_CLIENT_ID, keys.AIO_SERVER, keys.AIO_PORT, keys.AIO_USER, keys.AIO_KEY)
-# client.connect()
-
 # Main logic for monitoring, will run endlessly until disconnected from power.
 while True:
     try:
