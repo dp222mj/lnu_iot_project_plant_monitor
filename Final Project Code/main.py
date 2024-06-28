@@ -38,7 +38,7 @@ i2c_soil = I2C(0, scl=Pin(17), sda=Pin(16))
 # i2c_soil = I2C(0, scl=Pin(17, Pin.PULL_UP), sda=Pin(16, Pin.PULL_UP))
 ss = Seesaw(i2c_soil)
 
-# Setup for LDR/Photo Resistor, ADC connected to 3.3v with 4.7k ohm pullup resistor
+# Setup for LDR/Photo Resistor
 photo_resistor = ADC(Pin(27))
 light = photo_resistor.read_u16()
 # Light level is calculated as a percentage by subtracting the 16-bit integer reading from ADC from the ceiling value of the 16-bit integer (65535), this value is divided by the ceiling value and then multiplied by 100 to get the light level as a percentage.
