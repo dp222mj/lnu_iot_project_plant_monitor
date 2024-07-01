@@ -21,8 +21,8 @@ backlight_state = True
     # Setup for the button input to turn the backlight on/off
 push_button = Pin(18, Pin.IN, Pin.PULL_UP)
 
-    # Debounce delay (in milliseconds)
-debounce_delay = 200
+    # Debounce delay (in milliseconds) - commented out as I suspect using sleep_ms during a long sleep causes the code to break.
+# debounce_delay = 200
 
     # Function to toggle LCD backlight
 def toggle_backlight(pin):
@@ -33,7 +33,7 @@ def toggle_backlight(pin):
             lcd.backlight_on()
         else:
             lcd.backlight_off()
-    sleep_ms(debounce_delay)
+    # sleep_ms(debounce_delay)
 
     # Attach interrupt to the push button pin to toggle backlight
 push_button.irq(trigger=Pin.IRQ_FALLING, handler=toggle_backlight)
